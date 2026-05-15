@@ -93,17 +93,23 @@ python skills\codex-image-studio\scripts\generate_image_via_local_api.py --promp
 
 ## skills CLI
 
-现在仓库已经是标准多-skill 结构，可以先本地测试发现：
+现在仓库已经是标准多-skill 结构，推荐直接从 GitHub 安装：
+
+```powershell
+npx skills add huangwenxuangod/wenxuan-skills --list
+npx skills add huangwenxuangod/wenxuan-skills -a codex --skill source-router -g -y
+```
+
+安装全部 skill：
+
+```powershell
+npx skills add huangwenxuangod/wenxuan-skills -a codex --skill '*' -g -y
+```
+
+也可以先在本地测试发现：
 
 ```powershell
 npx skills add . --list
-```
-
-发布到 GitHub 后，可直接按仓库安装：
-
-```powershell
-npx skills add yourname/wenxuan-skills --list
-npx skills add yourname/wenxuan-skills -a codex --skill source-router -g -y
 ```
 
 ## 目录约定
