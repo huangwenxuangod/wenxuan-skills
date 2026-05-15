@@ -1,0 +1,4 @@
+interface:
+  display_name: "wenxuan-skills Content Studio"
+  short_description: "Generate Xiaohongshu topics and content from a project knowledge base"
+  default_prompt: "Use $wenxuan-skills-content-studio to turn a knowledge base into Xiaohongshu topics, titles, page plans, and content drafts."

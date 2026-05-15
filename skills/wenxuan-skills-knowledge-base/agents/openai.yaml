@@ -1,0 +1,4 @@
+interface:
+  display_name: "wenxuan-skills Knowledge Base"
+  short_description: "Turn raw search results into a reusable project knowledge base"
+  default_prompt: "Use $wenxuan-skills-knowledge-base to turn search results or captured materials into a structured knowledge base with facts, style signals, and prompt fragments."

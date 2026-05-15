@@ -1,0 +1,4 @@
+interface:
+  display_name: "wenxuan-skills Search"
+  short_description: "Search, extract, and collect raw source materials"
+  default_prompt: "Use $wenxuan-skills-search to search the web, extract URLs, crawl sites, or collect creator content into raw source materials."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "wenxuan-skills Image Studio"
+  short_description: "Build prompts and render images from a knowledge base and content bundle"
+  default_prompt: "Use $wenxuan-skills-image-studio to turn a knowledge base and content bundle into final image prompts and rendered Xiaohongshu images."

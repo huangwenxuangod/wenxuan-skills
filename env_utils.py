@@ -18,6 +18,12 @@ def get_wenxuan_output_dir(cwd: Path | None = None) -> Path:
     return base / "wenxuan-output"
 
 
+def get_wenxuan_stage_output_dir(stage: str, cwd: Path | None = None) -> Path:
+    output_dir = get_wenxuan_output_dir(cwd) / stage
+    output_dir.mkdir(parents=True, exist_ok=True)
+    return output_dir
+
+
 def load_project_env(project_root: Path, extra_paths: Iterable[Path] | None = None) -> list[str]:
     loaded: list[str] = []
     candidates = [
@@ -41,3 +47,20 @@ def load_project_env(project_root: Path, extra_paths: Iterable[Path] | None = No
                 os.environ[key] = value
                 loaded.append(key)
     return loaded
+
+
+def load_wenxuan_runtime_env(
+    project_root: Path,
+    *,
+    cwd: Path | None = None,
+    skill_root: Path | None = None,
+    extra_paths: Iterable[Path] | None = None,
+) -> list[str]:
+    runtime_cwd = (cwd or Path.cwd()).resolve()
+    candidates: list[Path] = [runtime_cwd / ".env", runtime_cwd / ".env.local"]
+    if skill_root is not None:
+        resolved_skill_root = skill_root.resolve()
+        candidates.extend([resolved_skill_root / ".env", resolved_skill_root / ".env.local"])
+    if extra_paths:
+        candidates.extend(extra_paths)
+    return load_project_env(project_root, candidates)
