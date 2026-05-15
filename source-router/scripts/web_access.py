@@ -13,8 +13,16 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from env_utils import load_project_env
+
 BASE_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT_DIR = BASE_DIR / "output"
+
+load_project_env(PROJECT_ROOT, [Path.cwd() / ".env", BASE_DIR / ".env", BASE_DIR / ".env.local"])
 
 
 def utc_now_iso() -> str:

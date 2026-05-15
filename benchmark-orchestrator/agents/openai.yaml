@@ -1,4 +1,0 @@
-interface:
-  display_name: "Benchmark Orchestrator"
-  short_description: "Orchestrate full competitor benchmarking workflows"
-  default_prompt: "Use $benchmark-orchestrator to coordinate a full competitor benchmarking workflow for a target account in this project."

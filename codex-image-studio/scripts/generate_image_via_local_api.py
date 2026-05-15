@@ -7,6 +7,16 @@ import os
 from pathlib import Path
 from urllib import error, request
 
+import sys
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from env_utils import load_project_env
+
+load_project_env(PROJECT_ROOT, [Path.cwd() / ".env"])
+
 
 DEFAULT_BASE_URL = "http://107.172.148.170:8000/v1"
 DEFAULT_MODEL = "gpt-image-2"

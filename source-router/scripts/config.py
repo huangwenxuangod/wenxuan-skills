@@ -1,7 +1,14 @@
 import os
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from env_utils import load_project_env
 
 DEFAULT_PROVIDERS: List[str] = [
     "github",
@@ -73,20 +80,13 @@ def load_dotenv(path: str = "") -> List[str]:
         candidates = [Path(path)]
     else:
         skill_root = Path(__file__).resolve().parents[1]
-        candidates = [Path.cwd() / ".env", skill_root / ".env", skill_root / ".env.local"]
+        candidates = [
+            Path.cwd() / ".env",
+            skill_root / ".env",
+            skill_root / ".env.local",
+        ]
     for candidate in candidates:
-        if not candidate.exists() or not candidate.is_file():
-            continue
-        for raw_line in candidate.read_text(encoding="utf-8").splitlines():
-            line = raw_line.strip()
-            if not line or line.startswith("#") or "=" not in line:
-                continue
-            key, value = line.split("=", 1)
-            key = key.strip()
-            value = value.strip().strip('"').strip("'")
-            if key and key not in os.environ:
-                os.environ[key] = value
-                loaded.append(key)
+        loaded.extend(load_project_env(PROJECT_ROOT, [candidate]))
     ENV_LOADED = True
     return loaded
 
@@ -186,7 +186,14 @@ def get_budget(budget: str) -> Dict[str, object]:
 
 def env_safety_report() -> Dict[str, object]:
     skill_root = Path(__file__).resolve().parents[1]
-    candidates = [Path.cwd() / ".env", skill_root / ".env", skill_root / ".env.local"]
+    project_root = Path(__file__).resolve().parents[2]
+    candidates = [
+        project_root / ".env",
+        project_root / ".env.local",
+        Path.cwd() / ".env",
+        skill_root / ".env",
+        skill_root / ".env.local",
+    ]
     existing = [str(path) for path in candidates if path.exists()]
     gitignore = Path.cwd() / ".gitignore"
     gitignore_text = gitignore.read_text(encoding="utf-8") if gitignore.exists() else ""
