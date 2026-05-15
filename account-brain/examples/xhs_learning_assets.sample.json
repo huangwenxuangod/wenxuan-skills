@@ -1,0 +1,187 @@
+{
+  "creator_name": "基德的秘宝箱",
+  "platform": "xhs",
+  "content_knowledge_kb": {
+    "creator_name": "基德的秘宝箱",
+    "platform": "xhs",
+    "source_posts_analyzed": 45,
+    "knowledge_domains": [
+      "塔罗",
+      "塔罗学习",
+      "逆位",
+      "易经",
+      "正位",
+      "大阿卡纳",
+      "塔罗入门",
+      "国学智慧",
+      "塔罗牌分享",
+      "塔罗葵花宝典",
+      "图示联想",
+      "核心牌义"
+    ],
+    "topic_clusters": [
+      "塔罗 -> 32 posts",
+      "塔罗学习 -> 22 posts",
+      "逆位 -> 19 posts",
+      "易经 -> 12 posts",
+      "正位 -> 16 posts",
+      "大阿卡纳 -> 14 posts",
+      "塔罗入门 -> 11 posts",
+      "国学智慧 -> 9 posts",
+      "塔罗牌分享 -> 8 posts",
+      "塔罗葵花宝典 -> 7 posts",
+      "图示联想 -> 5 posts",
+      "核心牌义 -> 2 posts"
+    ],
+    "recurring_concepts": [
+      "塔罗",
+      "塔罗学习",
+      "逆位",
+      "易经",
+      "正位",
+      "大阿卡纳",
+      "塔罗入门",
+      "国学智慧",
+      "塔罗牌分享",
+      "塔罗葵花宝典",
+      "图示联想",
+      "核心牌义",
+      "解析",
+      "号牌",
+      "传统文化",
+      "塔罗科普",
+      "塔罗逆位",
+      "教皇",
+      "塔罗逆位精解",
+      "比如"
+    ],
+    "reusable_explanations": [
+      "⚠️ 重要声明：本文内容仅为塔罗牌文化符号科普、兴趣交流，不涉及封建迷信，不具备预测未来、指导人生、决策判断等功能。塔罗牌本质是一种自我反思、情绪梳理的工具，所有解读均为主观娱乐性参考，请勿过度",
+      "传统文化小白速进！  谁还觉得六爻起卦是“复杂玄学”？今天跟着这组图，手把手教你自己起卦👇",
+      "宝子们！是不是刚入手了第一副塔罗牌，却不知道该怎么洗牌？",
+      "🔹【基础入门区：1-3张牌】",
+      "《塔罗葵花宝典》第四章",
+      "学易经、八字、六爻总卡壳？90% 的新手都没打牢十天干这个核心根基！",
+      "还在痛苦地背诵78张牌的正逆位156种解释吗？快停下！",
+      "听说易经很难懂？🤔"
+    ],
+    "cross_domain_mappings": [
+      "情感",
+      "事业",
+      "成长",
+      "决策"
+    ],
+    "content_templates": [
+      "新手必看型 (34)",
+      "逆位/反面公式型 (29)",
+      "关系模式型 (25)",
+      "保姆级步骤型 (10)",
+      "大全速查型 (6)"
+    ],
+    "question_space": [
+      "塔罗 是什么？",
+      "塔罗学习 是什么？",
+      "逆位 是什么？",
+      "易经 是什么？",
+      "正位 是什么？",
+      "大阿卡纳 是什么？",
+      "塔罗入门 是什么？",
+      "国学智慧 是什么？",
+      "塔罗 怎么入门？",
+      "塔罗学习 怎么入门？",
+      "逆位 怎么入门？",
+      "易经 怎么入门？"
+    ],
+    "evidence": [
+      {
+        "description": "Derived from repeated titles, body copy, hashtags, and high-performing posts in the captured set.",
+        "example_refs": [
+          "696c7edf000000001a0279ed",
+          "697631140000000022033f24",
+          "697057af000000000e00eebc",
+          "696e1815000000000a02da32",
+          "69d372b1000000002202485f"
+        ],
+        "confidence": "inferred"
+      }
+    ]
+  },
+  "visual_prompt_kernel": {
+    "creator_name": "基德的秘宝箱",
+    "platform": "xhs",
+    "style_name": "vintage handbook",
+    "base_style": "parchment educational poster",
+    "palette_tokens": [
+      "warm beige",
+      "dark brown",
+      "soft orange",
+      "dusty pink",
+      "lavender accent"
+    ],
+    "layout_grammar": [
+      "large title banner",
+      "one idea per block",
+      "clear grid or card structure",
+      "thin frame with corner ornaments",
+      "high readability over decoration",
+      "dense_multi_page_carousel"
+    ],
+    "typography_tokens": [
+      "brush-style headline",
+      "bold Chinese title",
+      "high contrast body text",
+      "text-heavy educational card"
+    ],
+    "decorative_grammar": [
+      "book and scroll motifs",
+      "hand-drawn icons",
+      "simple annotation marks",
+      "multi_page_sequence",
+      "emoji_prefix",
+      "topic_hashtags"
+    ],
+    "composition_rules": [
+      "keep one dominant focus per page",
+      "use 3-7 visual blocks, not dense paragraphs",
+      "pair every concept with a visual marker",
+      "keep white space readable"
+    ],
+    "information_density": "medium-high",
+    "prompt_seed": "vintage parchment knowledge poster, clean editorial layout, warm beige background, dark brown typography, orange highlight bars, simple iconography, body references page-by-page explanation; image note",
+    "negative_prompt": "low quality, cluttered layout, unreadable text, generic ai slop, too much decoration, neon cyberpunk",
+    "reference_images": [
+      "https://sns-i11.rednotecdn.com/spectrum/1040g0k031vsec3ej56005p2gr2eqatljheg42o0?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=660a8bd25a973a4c83b37490f421e0d5&t=6a058b01&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g0k031v6kb2di1u005p2gr2eqatljdigqi08?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=8e27942ae7c15cea0cba450fc5c09aa1&t=6a058b03&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g34o31uqqb52u1m105p2gr2eqatljsr5qmbo?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=7e8ddcfe0d8a2752b136de5884a598c0&t=6a058b07&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g0k031uk6b7cb34005p2gr2eqatljddrbe3o?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=25c0b04376395076087ceaf1011079c2&t=6a058b0a&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g0k031uk61pvjj4005p2gr2eqatlj774e54g?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=d542d1e36e4820d14ad0ba5a3d976c5f&t=6a058b0d&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g0k031uk5td5n1m005p2gr2eqatljemv8emg?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=e658e3cd7676430d07f76b41ddf513cb&t=6a058b12&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g0k031uk5p32qis005p2gr2eqatlj3kadi28?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=6919c8e49ab4b68527bc9f5cd601a5d5&t=6a058b17&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g0k031uk5miaq34005p2gr2eqatlji137v30?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=8fd4d418febcd9e91acbf65bf6baef96&t=6a058b19&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g34o31uk4tusnis3g5p2gr2eqatljesm7ig0?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=18a69edbc97921d4438a04e24e0e6284&t=6a058b1c&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g0k031uk5ikle1m005p2gr2eqatlj4oqartg?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=16061a59146231a0bb9c9a5a5b71b281&t=6a058b1f&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g0k031uk59sh62s005p2gr2eqatlj7c8n4jo?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=ef252da4e21ebbe9b8e8cfc823efa120&t=6a058b23&src=A",
+      "https://sns-i11.rednotecdn.com/spectrum/1040g34o31uk4r2ah3k205p2gr2eqatljhgfpr38?imageView2/2/w/1440/format/webp&ap=1&sc=DETAIL&sign=b7f4f955876a92cd693d7f4399653ccc&t=6a058b26&src=A"
+    ],
+    "evidence": [
+      {
+        "description": "Derived from the repeated visual asset grammar and page structure of the captured posts.",
+        "example_refs": [
+          "69fcad6e0000000036001387",
+          "69e6576300000000230133d9",
+          "69da3ee2000000001b003da1",
+          "69d3764d000000002301f630",
+          "69d3748e000000001a034ae4"
+        ],
+        "confidence": "inferred"
+      }
+    ]
+  },
+  "meta": {
+    "generated_at": "2026-05-15T01:26:02.574583Z",
+    "input_completeness": "partial",
+    "total_posts_analyzed": 45,
+    "total_visuals_analyzed": 45,
+    "notes": "Derived dual-track learning assets: content knowledge KB + visual prompt kernel."
+  }
+}

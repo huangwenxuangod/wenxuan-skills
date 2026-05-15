@@ -1,0 +1,4 @@
+interface:
+  display_name: "Account Brain"
+  short_description: "Encode creator behavior into AI learning models"
+  default_prompt: "Use $account-brain to encode a creator account into structured behavior models that AI can learn from."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Image Studio"
+  short_description: "Generate AI-native image-first social posts"
+  default_prompt: "Use $codex-image-studio to generate image-first social content from learned creator behavior models."
