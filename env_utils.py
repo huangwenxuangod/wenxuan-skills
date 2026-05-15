@@ -5,6 +5,14 @@ from pathlib import Path
 from typing import Iterable
 
 
+def find_project_root(start: Path) -> Path:
+    current = start.resolve()
+    for candidate in [current, *current.parents]:
+        if (candidate / "env_utils.py").exists() and (candidate / "README.md").exists():
+            return candidate
+    return start.resolve()
+
+
 def load_project_env(project_root: Path, extra_paths: Iterable[Path] | None = None) -> list[str]:
     loaded: list[str] = []
     candidates = [

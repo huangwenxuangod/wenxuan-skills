@@ -13,11 +13,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+for candidate in [Path(__file__).resolve(), *Path(__file__).resolve().parents]:
+    if (candidate / "env_utils.py").exists():
+        BOOTSTRAP_ROOT = candidate
+        break
+else:
+    BOOTSTRAP_ROOT = Path(__file__).resolve().parents[3]
+
+PROJECT_ROOT = BOOTSTRAP_ROOT
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from env_utils import load_project_env
+from env_utils import find_project_root, load_project_env
+
+PROJECT_ROOT = find_project_root(Path(__file__).resolve())
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT_DIR = BASE_DIR / "output"

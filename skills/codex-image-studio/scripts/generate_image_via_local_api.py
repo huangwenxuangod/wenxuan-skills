@@ -9,11 +9,20 @@ from urllib import error, request
 
 import sys
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+for candidate in [Path(__file__).resolve(), *Path(__file__).resolve().parents]:
+    if (candidate / "env_utils.py").exists():
+        BOOTSTRAP_ROOT = candidate
+        break
+else:
+    BOOTSTRAP_ROOT = Path(__file__).resolve().parents[3]
+
+PROJECT_ROOT = BOOTSTRAP_ROOT
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from env_utils import load_project_env
+from env_utils import find_project_root, load_project_env
+
+PROJECT_ROOT = find_project_root(Path(__file__).resolve())
 
 load_project_env(PROJECT_ROOT, [Path.cwd() / ".env"])
 

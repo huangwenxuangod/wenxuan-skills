@@ -4,11 +4,20 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+for candidate in [Path(__file__).resolve(), *Path(__file__).resolve().parents]:
+    if (candidate / "env_utils.py").exists():
+        BOOTSTRAP_ROOT = candidate
+        break
+else:
+    BOOTSTRAP_ROOT = Path(__file__).resolve().parents[3]
+
+PROJECT_ROOT = BOOTSTRAP_ROOT
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from env_utils import load_project_env
+from env_utils import find_project_root, load_project_env
+
+PROJECT_ROOT = find_project_root(Path(__file__).resolve())
 
 DEFAULT_PROVIDERS: List[str] = [
     "github",
@@ -69,6 +78,8 @@ def load_dotenv(path: str = "") -> List[str]:
 
     Precedence: existing environment variables win; .env only fills missing keys.
     Search order when path is empty:
+    - project root .env
+    - project root .env.local
     - current working directory .env
     - skill root .env
     - skill root .env.local
@@ -186,10 +197,9 @@ def get_budget(budget: str) -> Dict[str, object]:
 
 def env_safety_report() -> Dict[str, object]:
     skill_root = Path(__file__).resolve().parents[1]
-    project_root = Path(__file__).resolve().parents[2]
     candidates = [
-        project_root / ".env",
-        project_root / ".env.local",
+        PROJECT_ROOT / ".env",
+        PROJECT_ROOT / ".env.local",
         Path.cwd() / ".env",
         skill_root / ".env",
         skill_root / ".env.local",
@@ -197,7 +207,7 @@ def env_safety_report() -> Dict[str, object]:
     existing = [str(path) for path in candidates if path.exists()]
     gitignore = Path.cwd() / ".gitignore"
     gitignore_text = gitignore.read_text(encoding="utf-8") if gitignore.exists() else ""
-    protected_patterns = [".env", "*.env", ".env.local", "wenxuan-skills/source-router/.env", "wenxuan-skills/source-router/.env.local"]
+    protected_patterns = [".env", "*.env", ".env.local", "skills/source-router/.env", "skills/source-router/.env.local"]
     matched_patterns = [pattern for pattern in protected_patterns if pattern in gitignore_text]
     warnings: List[str] = []
     if existing and not matched_patterns:
