@@ -2,4 +2,4 @@
 .env.local
 __pycache__/
 */__pycache__/
-skills/source-router/output/
+skills/wenxuan-skills-source-router/output/

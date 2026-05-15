@@ -1,0 +1,4 @@
+interface:
+  display_name: "wenxuan-skills Creator Capture"
+  short_description: "Capture public assets from target creator accounts"
+  default_prompt: "Use $wenxuan-skills-creator-capture to capture public account, post, visual, traffic, and monetization assets for a target creator account."

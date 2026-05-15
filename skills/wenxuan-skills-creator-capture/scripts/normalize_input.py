@@ -10,7 +10,17 @@ from pathlib import Path
 from typing import Any, Iterable
 from urllib.parse import urlparse
 
+for candidate in [Path(__file__).resolve(), *Path(__file__).resolve().parents]:
+    if (candidate / "env_utils.py").exists():
+        BOOTSTRAP_ROOT = candidate
+        break
+else:
+    BOOTSTRAP_ROOT = Path(__file__).resolve().parents[3]
 
+if str(BOOTSTRAP_ROOT) not in sys.path:
+    sys.path.insert(0, str(BOOTSTRAP_ROOT))
+
+from env_utils import get_wenxuan_output_dir
 SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
@@ -427,10 +437,16 @@ def normalize_payload(payload: dict[str, Any], *, source_path: Path) -> CaptureB
     raise ValueError(f"Unsupported input format: {detected}")
 
 
+def get_default_output_path(input_path: Path) -> Path:
+    output_dir = get_wenxuan_output_dir()
+    output_dir.mkdir(parents=True, exist_ok=True)
+    return output_dir / f"{input_path.stem}.capture-bundle.json"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Normalize creator capture exports into CaptureBundle.")
     parser.add_argument("input_path", help="Path to raw creator JSON export.")
-    parser.add_argument("-o", "--output", help="Optional path to write normalized CaptureBundle JSON.")
+    parser.add_argument("-o", "--output", help="Optional path to write normalized CaptureBundle JSON. Defaults to ./wenxuan-output/<input>.capture-bundle.json")
     parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output.")
     parser.add_argument("--print-summary", action="store_true", help="Print a compact summary instead of full JSON.")
     args = parser.parse_args()
@@ -454,12 +470,10 @@ def main() -> int:
     else:
         output_text = bundle.model_dump_json(indent=2 if args.pretty else None, ensure_ascii=False)
 
-    if args.output:
-        output_path = Path(args.output).expanduser().resolve()
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(output_text, encoding="utf-8")
-    else:
-        print(output_text)
+    output_path = Path(args.output).expanduser().resolve() if args.output else get_default_output_path(input_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(output_text, encoding="utf-8")
+    print(str(output_path))
 
     return 0
 

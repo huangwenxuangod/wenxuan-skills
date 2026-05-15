@@ -1,11 +1,11 @@
 ---
-name: account-brain
+name: wenxuan-skills-account-brain
 description: 从 `CaptureBundle` 推导可复用的学习资产和行为模型。
 ---
 
 # Account Brain
 
-这个 skill 读取 `creator-capture` 的输出，并生成学习资产。
+这个 skill 读取 `wenxuan-skills-creator-capture` 的输出，并生成学习资产。
 
 当前主入口：
 

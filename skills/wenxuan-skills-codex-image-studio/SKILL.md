@@ -1,5 +1,5 @@
 ---
-name: codex-image-studio
+name: wenxuan-skills-codex-image-studio
 description: 使用统一环境变量和图片接口生成图片，作为内容生产层的最小入口。
 ---
 

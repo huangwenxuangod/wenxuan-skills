@@ -21,6 +21,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from env_utils import find_project_root, load_project_env
+from env_utils import get_wenxuan_output_dir
 
 PROJECT_ROOT = find_project_root(Path(__file__).resolve())
 
@@ -34,7 +35,7 @@ DEFAULT_MODEL = "gpt-image-2"
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate an image through a local OpenAI-compatible image API.")
     parser.add_argument("--prompt", required=True, help="Image prompt text")
-    parser.add_argument("--out", required=True, help="Output image path")
+    parser.add_argument("--out", help="Output image path. Defaults to ./wenxuan-output/generated-image.png")
     parser.add_argument("--api-key", help="API key; defaults to OPENAI_API_KEY")
     parser.add_argument("--base-url", default=os.environ.get("OPENAI_BASE_URL", DEFAULT_BASE_URL), help="OpenAI-compatible base URL")
     parser.add_argument("--model", default=os.environ.get("OPENAI_IMAGE_MODEL", DEFAULT_MODEL), help="Image model")
@@ -79,7 +80,8 @@ def call_image_api(*, base_url: str, api_key: str, model: str, prompt: str, n: i
 def main() -> int:
     args = parse_args()
     api_key = load_api_key(args.api_key)
-    out_path = Path(args.out).expanduser().resolve()
+    default_out = get_wenxuan_output_dir() / "generated-image.png"
+    out_path = Path(args.out).expanduser().resolve() if args.out else default_out.resolve()
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     result = call_image_api(

@@ -9,6 +9,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+for candidate in [Path(__file__).resolve(), *Path(__file__).resolve().parents]:
+    if (candidate / "env_utils.py").exists():
+        BOOTSTRAP_ROOT = candidate
+        break
+else:
+    BOOTSTRAP_ROOT = Path(__file__).resolve().parents[3]
+
+if str(BOOTSTRAP_ROOT) not in sys.path:
+    sys.path.insert(0, str(BOOTSTRAP_ROOT))
+
+from env_utils import get_wenxuan_output_dir
 from config import env_safety_report, get_budget, get_default_config, get_enabled_provider_keys, get_optional_provider_keys, get_provider_mode, infer_default_mode, has_provider_credentials
 from web_access import crawl_site, extract_url
 from providers import (
@@ -32,9 +43,6 @@ from providers import (
     search_x,
     search_youtube,
 )
-
-BASE_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT_DIR = BASE_DIR / "output"
 
 SOURCE_ROUTING: Dict[str, List[str]] = {
     "concept_explainer": ["tavily", "exa", "brave", "bing", "google_cse"],
@@ -122,8 +130,9 @@ def utc_now_iso() -> str:
 
 
 def ensure_output_dir() -> Path:
-    DEFAULT_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    return DEFAULT_OUTPUT_DIR
+    output_dir = get_wenxuan_output_dir()
+    output_dir.mkdir(parents=True, exist_ok=True)
+    return output_dir
 
 
 def normalize_text(value: Any) -> str:
@@ -688,7 +697,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--mode", default="", choices=["", "fast", "balanced", "deep", "social", "technical"], help="Provider usage profile. Empty means infer from task type or SOURCE_ROUTER_MODE.")
     parser.add_argument("--budget", default=os.getenv("SOURCE_ROUTER_BUDGET", "medium"), choices=["low", "medium", "high"], help="Cost/depth budget controlling provider count and extraction depth")
     parser.add_argument("--env-safety", action="store_true", help="Print .env safety diagnostics")
-    parser.add_argument("--save", action="store_true", help="Persist JSON and Markdown outputs under output/")
+    parser.add_argument("--save", action="store_true", help="Persist JSON and Markdown outputs under wenxuan-output/")
     parser.add_argument("--json", action="store_true", help="Output raw JSON only")
     return parser.parse_args()
 

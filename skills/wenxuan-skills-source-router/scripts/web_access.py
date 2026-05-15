@@ -25,11 +25,11 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from env_utils import find_project_root, load_project_env
+from env_utils import get_wenxuan_output_dir
 
 PROJECT_ROOT = find_project_root(Path(__file__).resolve())
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT_DIR = BASE_DIR / "output"
 
 load_project_env(PROJECT_ROOT, [Path.cwd() / ".env", BASE_DIR / ".env", BASE_DIR / ".env.local"])
 
@@ -39,8 +39,9 @@ def utc_now_iso() -> str:
 
 
 def ensure_output_dir() -> Path:
-    DEFAULT_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    return DEFAULT_OUTPUT_DIR
+    output_dir = get_wenxuan_output_dir()
+    output_dir.mkdir(parents=True, exist_ok=True)
+    return output_dir
 
 
 def slugify(value: str) -> str:

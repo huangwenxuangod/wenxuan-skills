@@ -1,5 +1,5 @@
 ---
-name: source-router
+name: wenxuan-skills-source-router
 description: 多源搜索、网页抽取、账号内容入口技能。优先用它做检索、路由和第一步抓取。
 allowed-tools: Bash, Read, Write, Edit, Grep, Glob, mcp__web-search__web_search, mcp__skill-handler__Skill, mcp__browser-use__browser_list_profiles, mcp__browser-use__browser_open, mcp__browser-use__browser_eval, mcp__browser-use__browser_click_element, mcp__browser-use__browser_type, mcp__browser-use__browser_scroll, mcp__browser-use__browser_close
 ---

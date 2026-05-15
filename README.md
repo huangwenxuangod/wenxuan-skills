@@ -4,13 +4,13 @@
 
 当前保留并整理后的主线只有 4 个，统一放在 `skills/` 目录下：
 
-1. `source-router`
+1. `wenxuan-skills-source-router`
    搜索、路由、网页抽取、账号内容入口。
-2. `creator-capture`
+2. `wenxuan-skills-creator-capture`
    把已有导出结果规范化成统一 `CaptureBundle`。
-3. `account-brain`
+3. `wenxuan-skills-account-brain`
    从 `CaptureBundle` 推导学习资产。
-4. `codex-image-studio`
+4. `wenxuan-skills-codex-image-studio`
    调用图像接口生成图片。
 
 ## 配置
@@ -31,6 +31,28 @@ Copy-Item .env.example .env
 
 推荐只维护根目录这一份。
 
+## 输出目录
+
+所有 skill 默认统一输出到：
+
+```text
+当前工作目录/wenxuan-output/
+```
+
+也就是你在哪个工作区执行，结果就落在哪个工作区下的 `wenxuan-output/`。
+
+例如你在：
+
+```text
+D:\work\client-a
+```
+
+里调用 skill，那么默认输出会在：
+
+```text
+D:\work\client-a\wenxuan-output
+```
+
 ## 常用环境变量
 
 - `GITHUB_TOKEN`：增强 GitHub 搜索稳定性
@@ -43,10 +65,10 @@ Copy-Item .env.example .env
 
 ## 快速使用
 
-### 1. `source-router`
+### 1. `wenxuan-skills-source-router`
 
 ```powershell
-cd D:\dev\my-project\wenxuan-skills\skills\source-router\scripts
+cd D:\dev\my-project\wenxuan-skills\skills\wenxuan-skills-source-router\scripts
 python search_aggregator.py --query "SEO 是啥" --json
 python search_aggregator.py --query "social media search agent" --task-type repo_lookup --platform github --json
 python search_aggregator.py --query "基德的秘宝箱 小红书账号 按时间排序前45篇" --task-type username_content --platform xhs --creator "基德的秘宝箱" --limit 45 --sort time_desc --save --json
@@ -59,37 +81,37 @@ python web_access.py extract "https://example.com" --json
 python web_access.py crawl "https://example.com" --depth 1 --limit 20 --json
 ```
 
-### 2. `creator-capture`
+### 2. `wenxuan-skills-creator-capture`
 
 把已有原始导出 JSON 规范化：
 
 ```powershell
-cd D:\dev\my-project\wenxuan-skills\skills\creator-capture\scripts
+cd D:\dev\my-project\wenxuan-skills\skills\wenxuan-skills-creator-capture\scripts
 python normalize_input.py input.json --pretty
 ```
 
-### 3. `account-brain`
+### 3. `wenxuan-skills-account-brain`
 
 基于规范化后的 `CaptureBundle` 生成学习资产：
 
 ```powershell
-cd D:\dev\my-project\wenxuan-skills\skills\account-brain\scripts
+cd D:\dev\my-project\wenxuan-skills\skills\wenxuan-skills-account-brain\scripts
 python derive_learning_assets.py capture-bundle.json --pretty
 ```
 
-### 4. `codex-image-studio`
+### 4. `wenxuan-skills-codex-image-studio`
 
 ```powershell
 cd D:\dev\my-project\wenxuan-skills
-python skills\codex-image-studio\scripts\generate_image_via_local_api.py --prompt "极简中文知识海报，米白底，深棕标题，卡片布局" --out output\sample.png
+python skills\wenxuan-skills-codex-image-studio\scripts\generate_image_via_local_api.py --prompt "极简中文知识海报，米白底，深棕标题，卡片布局"
 ```
 
 ## 当前状态
 
-- `source-router`：最完整，可直接跑
-- `creator-capture`：可跑，但当前偏“规范化已有导出”
-- `account-brain`：可跑，依赖 `creator-capture` 输出
-- `codex-image-studio`：可跑，依赖图片 API
+- `wenxuan-skills-source-router`：最完整，可直接跑
+- `wenxuan-skills-creator-capture`：可跑，但当前偏“规范化已有导出”
+- `wenxuan-skills-account-brain`：可跑，依赖 `wenxuan-skills-creator-capture` 输出
+- `wenxuan-skills-codex-image-studio`：可跑，依赖图片 API
 
 ## skills CLI
 
@@ -97,7 +119,7 @@ python skills\codex-image-studio\scripts\generate_image_via_local_api.py --promp
 
 ```powershell
 npx skills add huangwenxuangod/wenxuan-skills --list
-npx skills add huangwenxuangod/wenxuan-skills -a codex --skill source-router -g -y
+npx skills add huangwenxuangod/wenxuan-skills -a codex --skill wenxuan-skills-source-router -g -y
 ```
 
 安装全部 skill：
@@ -116,4 +138,4 @@ npx skills add . --list
 
 - 主入口文档：`README.md`
 - 统一环境文件：`.env`
-- 运行结果：`skills/source-router/output/`
+- 统一输出目录：`./wenxuan-output/`

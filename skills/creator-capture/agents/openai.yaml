@@ -1,4 +1,0 @@
-interface:
-  display_name: "Creator Capture"
-  short_description: "Capture public assets from target creator accounts"
-  default_prompt: "Use $creator-capture to capture public account, post, visual, traffic, and monetization assets for a target creator account."

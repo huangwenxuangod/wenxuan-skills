@@ -1,5 +1,5 @@
 ---
-name: creator-capture
+name: wenxuan-skills-creator-capture
 description: 把已有账号导出结果规范化成 `CaptureBundle`，供后续学习和生成使用。
 ---
 

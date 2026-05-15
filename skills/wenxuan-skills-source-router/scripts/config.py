@@ -207,7 +207,7 @@ def env_safety_report() -> Dict[str, object]:
     existing = [str(path) for path in candidates if path.exists()]
     gitignore = Path.cwd() / ".gitignore"
     gitignore_text = gitignore.read_text(encoding="utf-8") if gitignore.exists() else ""
-    protected_patterns = [".env", "*.env", ".env.local", "skills/source-router/.env", "skills/source-router/.env.local"]
+    protected_patterns = [".env", "*.env", ".env.local", "skills/wenxuan-skills-source-router/.env", "skills/wenxuan-skills-source-router/.env.local"]
     matched_patterns = [pattern for pattern in protected_patterns if pattern in gitignore_text]
     warnings: List[str] = []
     if existing and not matched_patterns:

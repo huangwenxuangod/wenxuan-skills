@@ -13,6 +13,11 @@ def find_project_root(start: Path) -> Path:
     return start.resolve()
 
 
+def get_wenxuan_output_dir(cwd: Path | None = None) -> Path:
+    base = (cwd or Path.cwd()).resolve()
+    return base / "wenxuan-output"
+
+
 def load_project_env(project_root: Path, extra_paths: Iterable[Path] | None = None) -> list[str]:
     loaded: list[str] = []
     candidates = [
