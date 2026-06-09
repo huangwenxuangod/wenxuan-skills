@@ -1,0 +1,7 @@
+interface:
+  display_name: "Skill Template"
+  short_description: "Base template for creating repeatable Codex skills"
+  default_prompt: "Use this skill's workflow when the request matches its trigger conditions."
+
+policy:
+  allow_implicit_invocation: true

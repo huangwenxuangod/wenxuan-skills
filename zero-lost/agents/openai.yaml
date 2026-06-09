@@ -1,0 +1,7 @@
+interface:
+  display_name: "Zero Lost"
+  short_description: "继续项目时先补齐并调用 agentmemory 官方 skills，读取项目记忆与相关会话"
+  default_prompt: "使用 $zero-lost 先读取项目记忆、追踪相关 session，再用一句话结论继续当前项目。"
+
+policy:
+  allow_implicit_invocation: true
