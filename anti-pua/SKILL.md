@@ -1,8 +1,6 @@
 ---
 name: anti-pua
 description: 反向PUA引擎——三把心理刀（恐惧/比较/打脸）×15种大厂风味。观察拖延→选刀→包装→输出。纯鞭策，无鸡汤。常态化加载。
-version: 3.0
-agent_created: true
 ---
 
 # Anti-PUA v3.0

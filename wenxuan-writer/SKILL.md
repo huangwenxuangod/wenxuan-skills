@@ -412,3 +412,7 @@ AI：按四层自检体系检查 → 输出修改建议
 
 更详细的风格示例和修改对比，参考 `references/style_examples.md`。
 完整的内容方法论（选题来源、选题分类、过往爆款案例、创意案例工作法），参考 `references/content_methodology.md`。
+
+## Skill 联动
+
+继承 `learn` 的素材完成文章，通过质检后交给 `wenxuan-title`；用户拖延提供真实经历或观点时由 `anti-pua` 介入。

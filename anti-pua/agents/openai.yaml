@@ -1,0 +1,4 @@
+interface:
+  display_name: "反 PUA"
+  short_description: "发现拖延和借口时，用直接鞭策推动文轩立即行动并交付结果"
+  default_prompt: "Use $anti-pua to challenge my excuses and push me to take action now."

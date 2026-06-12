@@ -1,14 +1,6 @@
 ---
 name: learn
-version: 1.0
-description: 选题深挖学习引擎——基于冰山理论×正反竞奇框架，搜索至少20轮优质内容，输出为写作弹药包，逼用户主动输出后自动衔接 wenxuan-writer
-trigger_words:
-  - /learn
-  - 我想写一篇关于
-  - 帮我调研一下
-  - 选题深挖
-  - 深挖这个选题
-agent_created: true
+description: 选题深挖学习引擎；当用户使用 /learn、想写某个选题、要求调研或深挖选题时，搜索并生成写作弹药包，推动用户输出后衔接 wenxuan-writer。
 ---
 
 # Learn Skill — 选题深挖学习引擎
@@ -128,7 +120,7 @@ agent_created: true
 
 3. **AI评判**：分析用户的输出是否有遗漏/偏差/逻辑断裂，补充提问深化。
 
-4. **通过后自动衔接 wenxuan-writer**：用户输出的脉络+骨肉直接作为 writer skill 的输入素材，自动加载 wenxuan-writer 开始写长文。
+4. **自动衔接**：通过后交给 `wenxuan-writer`，文章定稿后再交给 `wenxuan-title`。
 
 ## anti-pua 配合规则
 

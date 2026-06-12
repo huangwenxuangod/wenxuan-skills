@@ -1,0 +1,4 @@
+interface:
+  display_name: "论文深度解读"
+  short_description: "使用三遍阅读法与IMRaD框架解读论文并支持逐段精读"
+  default_prompt: "Use $wenxuan-paper to deeply analyze this academic paper."

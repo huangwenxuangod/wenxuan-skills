@@ -4,16 +4,19 @@
 
 当前目标不是收集零散提示词，而是把开发过程中反复出现的问题、判断规则和解决流程，逐步沉淀成可复用的 skills。
 
+创建新 Skill 时遵循 [Skill 创建规范](./SKILL-CREATION.md)。
+
 ## Skills
 
-当前共有 **4 个 Skills**，其中 3 个可用、1 个开发中：
+当前共有 **5 个 Skills**：
 
 | Skill | 状态 | 用途 |
 |---|---|---|
-| `anti-pua` | 开发中 | 由 AI 反向督促用户行动并完成目标。 |
-| `core-only` | 可用 | 默认只输出核心结果，明确要求时再完整展开。 |
+| `anti-pua` | 可用 | 在用户拖延或找借口时反向督促行动。 |
+| `learn` | 可用 | 深挖选题并生成可直接用于写作的学习包。 |
+| `wenxuan-paper` | 可用 | 基于三遍阅读法深度解读学术论文，支持逐段精读。 |
+| `wenxuan-title` | 可用 | 为文轩的文章生成标题与封面配文。 |
 | `wenxuan-writer` | 可用 | 使用文轩的身份和既定风格撰写公众号长文。 |
-| `zero-lost` | 可用 | 调度项目记忆，在新会话中恢复历史上下文。 |
 
 ## 设计原则
 
@@ -29,10 +32,19 @@
 wenxuan-skills/
 ├── README.md
 ├── anti-pua/
-├── core-only/
-├── wenxuan-writer/
-└── zero-lost/
+├── learn/
+├── wenxuan-paper/
+├── wenxuan-title/
+└── wenxuan-writer/
 ```
+
+## 内容生产链路
+
+`learn → wenxuan-writer → wenxuan-title`
+
+`anti-pua` 仅在用户拖延、逃避输出或中断链路时介入。
+
+`wenxuan-paper` 独立触发，仅处理明确属于学术论文的 PDF。
 
 ## 适用场景
 

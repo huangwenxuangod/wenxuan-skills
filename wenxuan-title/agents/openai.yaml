@@ -1,0 +1,4 @@
+interface:
+  display_name: "文轩标题生成"
+  short_description: "为文轩的AI实战与大学生成长内容生成高点击标题和封面配文"
+  default_prompt: "Use $wenxuan-title to generate titles and cover copy for this article."
