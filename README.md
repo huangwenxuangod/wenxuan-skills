@@ -4,6 +4,17 @@
 
 当前目标不是收集零散提示词，而是把开发过程中反复出现的问题、判断规则和解决流程，逐步沉淀成可复用的 skills。
 
+## Skills
+
+当前共有 **4 个 Skills**，其中 3 个可用、1 个开发中：
+
+| Skill | 状态 | 用途 |
+|---|---|---|
+| `anti-pua` | 开发中 | 由 AI 反向督促用户行动并完成目标。 |
+| `core-only` | 可用 | 默认只输出核心结果，明确要求时再完整展开。 |
+| `wenxuan-writer` | 可用 | 使用文轩的身份和既定风格撰写公众号长文。 |
+| `zero-lost` | 可用 | 调度项目记忆，在新会话中恢复历史上下文。 |
+
 ## 设计原则
 
 - 一个目录就是一个 skill。
@@ -17,8 +28,10 @@
 ```text
 wenxuan-skills/
 ├── README.md
+├── anti-pua/
 ├── core-only/
-└── templates/
+├── wenxuan-writer/
+└── zero-lost/
 ```
 
 ## 适用场景
@@ -30,7 +43,7 @@ wenxuan-skills/
 
 ## 仓库使用建议
 
-- 新建 skill 时直接复制 `templates/skill-template/`
+- 新建 skill 时使用 `skill-creator` 初始化。
 - 每次新增 skill，优先先写清楚：
   - 什么时候触发
   - 输入通常长什么样
@@ -45,3 +58,7 @@ wenxuan-skills/
 `C:\Users\37453\.codex\skills\<skill-name>`
 
 如果是本地开发，可直接把整个目录同步过去；安装后重启 Codex 以确保重新索引。
+
+## 许可证
+
+本仓库采用 [MIT License](./LICENSE)；基于第三方项目改造的 Skill 同时保留原作者版权声明。

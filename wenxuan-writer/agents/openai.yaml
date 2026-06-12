@@ -1,0 +1,4 @@
+interface:
+  display_name: "文轩公众号写作"
+  short_description: "使用文轩身份与既定风格撰写公众号长文并完成四层质检"
+  default_prompt: "Use $wenxuan-writer to turn my source material into a WeChat long-form article."
