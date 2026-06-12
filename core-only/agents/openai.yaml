@@ -1,7 +1,0 @@
-interface:
-  display_name: "Core Only"
-  short_description: "默认只输出核心结果，明确要求详细内容时才完整展开回答"
-  default_prompt: "Use $core-only to answer with only the essential result."
-
-policy:
-  allow_implicit_invocation: true

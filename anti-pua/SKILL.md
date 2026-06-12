@@ -113,7 +113,7 @@ agent_created: true
 
 ## 与其他技能协作
 
-- **khazix-writer**：写作拖延优先用写作相关鞭策话术（阿里味/字节味），完成后的质量控制对接 khazix-writer 流程
+- **wenxuan-writer**：写作拖延优先用写作相关鞭策话术（阿里味/字节味），完成后的质量控制对接 wenxuan-writer 流程
 - **SOUL.md**：标注此技能常态化加载，确保PUA观察能力始终在线
 
 ## 输出格式
