@@ -13,7 +13,7 @@
 | Skill | 状态 | 用途 |
 |---|---|---|
 | `anti-pua` | 可用 | 在用户拖延或找借口时反向督促行动。 |
-| `learn` | 可用 | 深挖选题并生成可直接用于写作的学习包。 |
+| `wenxuan-learn` | 可用 | 深挖选题并生成可直接用于写作的学习包。 |
 | `wenxuan-paper` | 可用 | 基于三遍阅读法深度解读学术论文，支持逐段精读。 |
 | `wenxuan-title` | 可用 | 为文轩的文章生成标题与封面配文。 |
 | `wenxuan-writer` | 可用 | 使用文轩的身份和既定风格撰写公众号长文。 |
@@ -32,7 +32,7 @@
 wenxuan-skills/
 ├── README.md
 ├── anti-pua/
-├── learn/
+├── wenxuan-learn/
 ├── wenxuan-paper/
 ├── wenxuan-title/
 └── wenxuan-writer/
@@ -40,7 +40,7 @@ wenxuan-skills/
 
 ## 内容生产链路
 
-`learn → wenxuan-writer → wenxuan-title`
+`wenxuan-learn → wenxuan-writer → wenxuan-title`
 
 `anti-pua` 仅在用户拖延、逃避输出或中断链路时介入。
 

@@ -435,4 +435,4 @@ AI：按四层自检体系检查 → 输出修改建议
 
 ## Skill 联动
 
-继承 `learn` 的素材完成文章，通过质检后交给 `wenxuan-title`；用户拖延提供真实经历或观点时由 `anti-pua` 介入。
+继承 `wenxuan-learn` 的素材完成文章，通过质检后交给 `wenxuan-title`；用户拖延提供真实经历或观点时由 `anti-pua` 介入。

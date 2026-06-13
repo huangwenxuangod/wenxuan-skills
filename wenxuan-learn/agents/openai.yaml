@@ -1,4 +1,4 @@
 interface:
   display_name: "选题深挖"
   short_description: "深挖选题并生成写作弹药包，推动输出后衔接文轩写作流程"
-  default_prompt: "Use $learn to research this topic and prepare a writing package."
+  default_prompt: "Use $wenxuan-learn to research this topic and prepare a writing package."
