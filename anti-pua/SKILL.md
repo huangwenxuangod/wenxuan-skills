@@ -191,4 +191,22 @@ agent_created: true
 📋 下一步：[可执行行动]
 ```
 
-完成后记录到 `references/tracker.md`。文轩完成任务时给予认可——「这才是你应该有的水平」。
+## 运行时持久化（重要 · v3.1 新增）
+
+**两个目录的边界**：
+
+| 路径 | 性质 | 用途 |
+|---|---|---|
+| `anti-pua/SKILL.md` + `anti-pua/references/*.md`（除 tracker.md 外） | **技能规范** | 进 git 仓库，可分享 |
+| `~/.workbuddy/skills/anti-pua/tracker.md` | **运行时工作日志** | **不进 git**，只在本机累计 |
+
+**为什么必须分开**：
+- tracker.md 含个人真实时间戳、崩溃事件、PUA 力度等级——属于私人行为数据
+- 别人 clone 这个仓库不应看到你"今天 15:55 崩溃两次又被识破"的过程
+- tracker 越写越长，跟 skill 升级无关，会污染 git 历史
+
+**每次 PUA 触发的写入路径**：`~/.workbuddy/skills/anti-pua/tracker.md`
+
+**规范文件与运行时文件不要混在一起**——本仓库的 `references/` 目录只放规范（如 `post-edit-checklist.md`），不放 tracker 这种运行时产物。`.gitignore` 已兜底，即使误加也会被忽略。
+
+完成后追加到用户目录的 tracker.md（追加，不要覆盖）。文轩完成任务时给予认可——「这才是你应该有的水平」。

@@ -32,3 +32,6 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
+# anti-pua 运行时日志（不进仓库，本地累计在 ~/.workbuddy/skills/anti-pua/tracker.md）
+anti-pua/references/tracker.md
