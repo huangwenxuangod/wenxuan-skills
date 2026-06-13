@@ -6,7 +6,7 @@
 
 ---
 
-## 5 个 Skills
+## 6 个 Skills
 
 | Skill | 状态 | 一句话 | 触发词 | 规模 |
 |---|---|---|---|---|
@@ -15,6 +15,7 @@
 | **`wenxuan-writer`** | 可用 | 按文轩的「踩坑大学生」口吻写公众号长文 | "写文章""帮我写""按我的风格写""AI 味太重" | 438 行 |
 | **`wenxuan-title`** | 可用 | 融合爆款模板 + 哲学认知劫持，起最狠的标题 | `/wenxuan-title` "起个标题" | 791 行 |
 | **`wenxuan-paper`** | 可用 | Keshav 三遍阅读法 × IMRaD 结构化拆解学术论文 | `/wenxuan-paper` `/deep` 论文 PDF | 452 行 |
+| **`wenxuan-research`** | 可用 | 1 小时内为陌生行业建可沉淀的认知操作系统（数据库+竞品+内容+地图+机会） | `/wenxuan-research` "了解一下 XX 行业" | ~340 行 |
 
 每个 Skill 独立成目录，详情见各目录下的 `SKILL.md`。
 
@@ -29,6 +30,7 @@ wenxuan-learn  →  wenxuan-writer  →  wenxuan-title
 
 **`anti-pua` 是链路里的"鞭子"**——用户在任意环节拖延、逃避、找借口，立刻介入。
 **`wenxuan-paper` 是独立支线**——专门处理学术论文 PDF。
+**`wenxuan-research` 是入口研究**——不写文章，只吃透一个行业，输出可沉淀的认知操作系统。
 
 ### 一个具体的例子
 
@@ -77,6 +79,9 @@ wenxuan-skills/
     ├── SKILL.md
     ├── agents/openai.yaml
     └── scripts/pdf_to_text.py   # pymupdf4llm 转 markdown
+└── wenxuan-research/      # 行业认知研究
+    ├── SKILL.md
+    └── agents/openai.yaml
 ```
 
 ---

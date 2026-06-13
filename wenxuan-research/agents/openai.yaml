@@ -1,0 +1,4 @@
+interface:
+  display_name: "行业认知研究"
+  short_description: "为新行业建立可沉淀的认知操作系统：行业数据库 + 竞品拆解 + 内容生态 + 知识地图 + 机会地图"
+  default_prompt: "Use $wenxuan-research to map an industry into a reusable knowledge system."
