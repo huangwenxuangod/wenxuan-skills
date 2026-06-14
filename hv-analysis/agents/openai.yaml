@@ -1,0 +1,4 @@
+interface:
+  display_name: "横纵分析研究"
+  short_description: "对一个对象（产品/公司/概念/人物）做双轴深度研究，输出 1-3 万字横纵分析 PDF 报告"
+  default_prompt: "Use $hv-analysis to research this subject and produce a horizontal-vertical analysis PDF report."
