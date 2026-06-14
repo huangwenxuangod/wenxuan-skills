@@ -443,6 +443,45 @@ Opportunities/
 
 > **信源分级**：A 类（官方/GitHub/论文/产品本体，必查）→ B 类（权威媒体/大佬博客，需交叉）→ C 类（社区/社媒，只作辅证）。详见 `references/source-quality.md`。
 
+### 并行子 agent 策略（借鉴 hv-analysis）
+
+wenxuan-research 的 8 目录单 agent 串行搜容易"一头扎进 Brands 饿死其他目录"。按目录数量弹性派 sub-agent：
+
+| 目录数 | sub-agent 数 | 分工建议 |
+|------|------------|----------|
+| ≤ 3 | 不派，主 agent 串行 | — |
+| 4-6 | 2 个 | 实体/商业组 + 流量/趋势组 |
+| 7-8 | 3 个 | 实体组（Brands+Products+Competitors）/ 需求组（Pain-Points+Keywords+Content-Channels）/ 趋势组（Business-Models+Regulations+Trends+Opportunities） |
+
+**避免重复搜**：主 agent 在每个 sub-agent prompt 头部注入本轮已用关键词 + 已见 URL 清单（关键词黑板）。
+
+### 子 agent 联网工具指引（嵌入每个 sub-agent prompt）
+
+- **WebSearch**：发现信息来源、拿摘要
+- **WebFetch**：已知 URL 定向提取内容
+- **策略**：先 WebSearch 找来源，拿到 URL 后 WebFetch 深入
+- 多关键词组合，不只搜一次
+- 一手来源 > 二手来源
+- 学术/技术类研究对象必查 arXiv：`curl -s "https://export.arxiv.org/api/query?search_query=关键词&max_results=10"`
+
+### 来源优先级（一手 vs 二手）
+
+| 信息类型 | 一手来源 | 兜底 |
+|---------|---------|------|
+| 产品/技术决策 | 官方博客、GitHub Release、创始人推文 | 权威媒体原创 |
+| 商业数据 | 公司公告、SEC/工商文件 | Crunchbase、企查查 |
+| 用户口碑 | GitHub Issues、Reddit、X、知乎 | 评测媒体 |
+| 行业分析 | 权威媒体原创（非转载） | 行业报告 |
+| 学术/技术原理 | arXiv、Google Scholar、顶会 | 综述博客 |
+
+### 信息充分性自检（软建议，不阻塞）
+
+- **覆盖度**：8 目录里每个目录至少有 1 条核心信息
+- **饱和度**：连续 3 轮搜索出现 ≥ 50% 重复关键词
+- **来源**：关键事实有 ≥ 2 个独立来源支撑
+
+未达标的目录写入 `<行业名>-Industry/_gaps.md`，由主 agent 决定是否补搜。
+
 ## 触发方式
 
 1. `/wenxuan-research XX` — 主动触发
