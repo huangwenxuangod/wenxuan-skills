@@ -16,6 +16,7 @@
 | **`wenxuan-title`** | 可用 | 融合爆款模板 + 哲学认知劫持，起最狠的标题 | `/wenxuan-title` "起个标题" | 791 行 |
 | **`wenxuan-paper`** | 可用 | Keshav 三遍阅读法 × IMRaD 结构化拆解学术论文 | `/wenxuan-paper` `/deep` 论文 PDF | 452 行 |
 | **`wenxuan-research`** | 可用 | 1 小时内为陌生行业建可沉淀的认知操作系统（数据库+竞品+内容+地图+机会） | `/wenxuan-research` "了解一下 XX 行业" | ~340 行 |
+| **`hv-analysis`** | 可用（三方 fork）| 数字生命卡兹克出品，对一个对象做双轴深度研究 → 1-3 万字 PDF 报告 | `/hv-analysis` "研究一下 XX" "横纵分析" | 776 行 |
 
 每个 Skill 独立成目录，详情见各目录下的 `SKILL.md`。
 
@@ -41,6 +42,7 @@ wenxuan-learn  →  wenxuan-writer  →  wenxuan-title
 3. 写到一半卡住/不想写 → `anti-pua` 介入抽你
 4. 完稿想发 → `wenxuan-title` 生成 5 个爆款标题候选
 5. 顺带看一篇 arXiv 论文做参考 → `wenxuan-paper` 三遍阅读拆解
+6. 想研究一个具体公司/产品/概念 → `hv-analysis` 横纵分析 → 1-3 万字 PDF 报告
 
 ---
 
@@ -82,6 +84,11 @@ wenxuan-skills/
 └── wenxuan-research/      # 行业认知研究
     ├── SKILL.md
     └── agents/openai.yaml
+└── hv-analysis/           # 横纵分析（卡兹克 fork）
+    ├── SKILL.md
+    ├── agents/openai.yaml
+    ├── references/schema.json
+    └── scripts/md_to_pdf.py
 ```
 
 ---
