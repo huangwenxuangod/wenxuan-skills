@@ -11,7 +11,7 @@
 | Skill | 状态 | 一句话 | 触发词 | 规模 |
 |---|---|---|---|---|
 | **`anti-pua`** | 可用 | 15 种大厂风味 × 三把心理刀，发现拖延就抽 | "我没空""我累了""明天再写" | 212 行 |
-| **`wenxuan-learn`** | 可用 | 深挖选题，生成可写作的弹药包（强制事实核查） | `/wenxuan-learn` "我想写一篇关于 XX" | 241 行 |
+| **`wenxuan-learn`** | 可用 | 深挖选题，生成可写作的弹药包（v2.0：双轴骨架+8 思维模型+可选 PDF） | `/wenxuan-learn` "我想写一篇关于 XX" "研究一下 XX" | 415 行 |
 | **`wenxuan-writer`** | 可用 | 按文轩的「踩坑大学生」口吻写公众号长文 | "写文章""帮我写""按我的风格写""AI 味太重" | 438 行 |
 | **`wenxuan-title`** | 可用 | 融合爆款模板 + 哲学认知劫持，起最狠的标题 | `/wenxuan-title` "起个标题" | 791 行 |
 | **`wenxuan-paper`** | 可用 | Keshav 三遍阅读法 × IMRaD 结构化拆解学术论文 | `/wenxuan-paper` `/deep` 论文 PDF | 452 行 |
@@ -42,7 +42,7 @@ wenxuan-learn  →  wenxuan-writer  →  wenxuan-title
 3. 写到一半卡住/不想写 → `anti-pua` 介入抽你
 4. 完稿想发 → `wenxuan-title` 生成 5 个爆款标题候选
 5. 顺带看一篇 arXiv 论文做参考 → `wenxuan-paper` 三遍阅读拆解
-6. 想研究一个具体公司/产品/概念 → `hv-analysis` 横纵分析 → 1-3 万字 PDF 报告
+6. 想研究一个具体公司/产品/概念 → 直接用 **`wenxuan-learn`**（v2.0 已融合双轴骨架）或单独跑 **`hv-analysis`** → 1-3 万字 PDF 报告
 
 ---
 
