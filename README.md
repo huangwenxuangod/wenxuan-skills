@@ -11,12 +11,11 @@
 | Skill | 状态 | 一句话 | 触发词 | 规模 |
 |---|---|---|---|---|
 | **`anti-pua`** | 可用 | 15 种大厂风味 × 三把心理刀，发现拖延就抽 | "我没空""我累了""明天再写" | 212 行 |
-| **`wenxuan-learn`** | 可用 | 深挖选题，生成可写作的弹药包（v2.0：双轴骨架+8 思维模型+可选 PDF） | `/wenxuan-learn` "我想写一篇关于 XX" "研究一下 XX" | 415 行 |
+| **`wenxuan-learn`** | 可用 | 深挖选题，生成 10000-20000 字研究报告（v2.0：双轴骨架 + 5 类研究对象 + 必出 PDF） | `/wenxuan-learn` "我想写一篇关于 XX" "研究一下 XX" "拆解这篇文章" | 435 行 |
 | **`wenxuan-writer`** | 可用 | 按文轩的「踩坑大学生」口吻写公众号长文 | "写文章""帮我写""按我的风格写""AI 味太重" | 438 行 |
 | **`wenxuan-title`** | 可用 | 融合爆款模板 + 哲学认知劫持，起最狠的标题 | `/wenxuan-title` "起个标题" | 791 行 |
 | **`wenxuan-paper`** | 可用 | Keshav 三遍阅读法 × IMRaD 结构化拆解学术论文 | `/wenxuan-paper` `/deep` 论文 PDF | 452 行 |
 | **`wenxuan-research`** | 可用 | 1 小时内为陌生行业建可沉淀的认知操作系统（数据库+竞品+内容+地图+机会） | `/wenxuan-research` "了解一下 XX 行业" | ~340 行 |
-| **`hv-analysis`** | 可用（三方 fork）| 数字生命卡兹克出品，对一个对象做双轴深度研究 → 1-3 万字 PDF 报告 | `/hv-analysis` "研究一下 XX" "横纵分析" | 776 行 |
 
 每个 Skill 独立成目录，详情见各目录下的 `SKILL.md`。
 
@@ -42,7 +41,7 @@ wenxuan-learn  →  wenxuan-writer  →  wenxuan-title
 3. 写到一半卡住/不想写 → `anti-pua` 介入抽你
 4. 完稿想发 → `wenxuan-title` 生成 5 个爆款标题候选
 5. 顺带看一篇 arXiv 论文做参考 → `wenxuan-paper` 三遍阅读拆解
-6. 想研究一个具体公司/产品/概念 → 直接用 **`wenxuan-learn`**（v2.0 已融合双轴骨架）或单独跑 **`hv-analysis`** → 1-3 万字 PDF 报告
+6. 想研究一个具体公司/产品/概念/文章 → 直接用 **`wenxuan-learn`**（v2.0 已融合双轴骨架 + 5 类研究对象）→ 10000-20000 字研究报告 + PDF
 
 ---
 
@@ -84,11 +83,6 @@ wenxuan-skills/
 └── wenxuan-research/      # 行业认知研究
     ├── SKILL.md
     └── agents/openai.yaml
-└── hv-analysis/           # 横纵分析（卡兹克 fork）
-    ├── SKILL.md
-    ├── agents/openai.yaml
-    ├── references/schema.json
-    └── scripts/md_to_pdf.py
 ```
 
 ---
