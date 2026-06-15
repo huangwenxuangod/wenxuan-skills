@@ -128,7 +128,7 @@ cp -r D:/dev/my-project/wenxuan-skills/wenxuan-writer ~/.workbuddy/skills/
 | 2026-06-13 | `learn` → `wenxuan-learn` 重命名（统一 `wenxuan-` 前缀） |
 | 2026-06-13 | `wenxuan-learn` 新增**事实核查**机制——不实数据/不存在引用不进弹药包 |
 | 2026-06-13 | `anti-pua` v3.1，移除鼓励模式、15 风味×三把心理刀精简到 212 行 |
-| 2026-06-13 | `wenxuan-writer` 融入 `renwei-writing` 心法（位置/代价/手迹三件套） |
+| 2026-06-13 | `wenxuan-writer` 融入 `humanlize` 心法（位置/代价/手迹三件套） |
 | 2026-06-12 | 安装 `coreyhaines31/marketingskills` 44 个营销 skill 到 `~/.workbuddy/skills/` |
 | 2026-06-12 | 新增 `wenxuan-paper`（论文深度解读）+ `scripts/pdf_to_text.py` |
 
