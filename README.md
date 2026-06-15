@@ -6,7 +6,7 @@
 
 ---
 
-## 6 个 Skills
+## 7 个 Skills
 
 | Skill | 状态 | 一句话 | 触发词 | 规模 |
 |---|---|---|---|---|
@@ -16,6 +16,7 @@
 | **`wenxuan-title`** | 可用 | 融合爆款模板 + 哲学认知劫持，起最狠的标题 | `/wenxuan-title` "起个标题" | 791 行 |
 | **`wenxuan-paper`** | 可用 | Keshav 三遍阅读法 × IMRaD 结构化拆解学术论文 | `/wenxuan-paper` `/deep` 论文 PDF | 452 行 |
 | **`wenxuan-research`** | 可用 | 1 小时内为陌生行业建可沉淀的认知操作系统（数据库+竞品+内容+地图+机会） | `/wenxuan-research` "了解一下 XX 行业" | ~340 行 |
+| **`wenxuan-translate`** | 可用 | 专业英文→中文翻译，renwei 人味双注入 + 8 大质量门 | `/wenxuan-translate` "翻译这个" "H1 翻译" | 262 行 |
 
 每个 Skill 独立成目录，详情见各目录下的 `SKILL.md`。
 
@@ -42,6 +43,7 @@ wenxuan-learn  →  wenxuan-writer  →  wenxuan-title
 4. 完稿想发 → `wenxuan-title` 生成 5 个爆款标题候选
 5. 顺带看一篇 arXiv 论文做参考 → `wenxuan-paper` 三遍阅读拆解
 6. 想研究一个具体公司/产品/概念/文章 → 直接用 **`wenxuan-learn`**（v2.0 已融合双轴骨架 + 5 类研究对象）→ 10000-20000 字研究报告 + PDF
+7. 刷到一篇高质量英文推文/Newsletter/技术博客想翻译 → **`wenxuan-translate`** 双语对照译文 + PDF（人味双注入 + 8 大质量门）
 
 ---
 
@@ -83,6 +85,11 @@ wenxuan-skills/
 └── wenxuan-research/      # 行业认知研究
     ├── SKILL.md
     └── agents/openai.yaml
+└── wenxuan-translate/      # 专业英中翻译
+    ├── SKILL.md
+    ├── agents/openai.yaml
+    ├── references/        # renwei 人味心法、4 大翻译原则、8 大质量门、术语表
+    └── scripts/md_to_pdf.py   # 中英混排 CJK 字体
 ```
 
 ---
