@@ -17,7 +17,7 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 | **9 大质量门** | F1-F9 硬约束（反虚构/术语一致/文化标注/决策记录/语气保留/长度适应/多轮自检/人工复检/反向校验）|
 | **场景驱动** | H1 爆款 / H2 行业 / H4 个人收藏自动识别 |
 | **Markdown-first** | 翻译→MD→PDF 分离（CSS 排版内置）|
-| **必出 PDF** | 排版精美的中英对照 PDF |
+| **必出 PDF** | 排版精美的纯中文 PDF |
 | **术语表累积** | `references/terminology-glossary.md` 跨次翻译复用 |
 | **声音校准 4 维** | 句长/标点/人称/正式度对齐原文 |
 | **文化决策 5 步** | 搜索→识梗→选路→标注→复检全流程 |
@@ -27,8 +27,7 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 
 1. `/wenxuan-translate <链接或文件>` — 主动
 2. "翻译这个英文推文" / "把这段英文翻成中文" — 自然语言
-3. "中英对照" — 强调双语（默认就是）
-4. "H1 翻译" / "H2 翻译" / "H4 翻译" — 强制场景
+3. "H1 翻译" / "H2 翻译" / "H4 翻译" — 强制场景
 
 ## 输入/输出
 
@@ -38,8 +37,8 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 - 粘贴的英文文本
 
 **输出**：
-- `D:\path-to-wealth-freedom\内容\翻译\译文-<原标题或日期>.md`（中英对照）
-- `D:\path-to-wealth-freedom\内容\翻译\译文-<原标题或日期>.pdf`（必出）
+- `D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.md`（纯中文）
+- `D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.pdf`（必出）
 
 ## 5 大流程
 
@@ -80,7 +79,7 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 |---|---|
 | 翻译方向 | 英文 → 中文（v1 不做中→英）|
 | 输入 | 链接 / MD / 粘贴文本 |
-| 输出 | MD（中英对照）+ PDF |
+| 输出 | MD（纯中文）+ PDF |
 | 质量门 | F1-F9 全部硬约束 |
 | 场景 | H1/H2/H4 智能识别 + 可手动覆盖 |
 | 子 Agent | 2 个（人味 + 事实/溯源）|
