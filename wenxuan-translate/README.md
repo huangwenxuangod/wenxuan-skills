@@ -69,7 +69,7 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 - [SKILL.md](SKILL.md) —— 主 skill 定义（5 大流程 + 9 质量门 + 触发词 + 输入/输出）
 - [references/humanlize-prompt-snippet.md](references/humanlize-prompt-snippet.md) —— humanlize 心法 Prompt 注入片段
 - [references/translation-standards.md](references/translation-standards.md) —— 4 大翻译原则
-- [references/quality-gates.md](references/quality-gates.md) —— 9 大质量门详细规则
+- [references/quality-gates.md](references/quality-gates.md) —— 10 大质量门详细规则
 - [references/terminology-research.md](references/terminology-research.md) —— 术语研究方法
 - [references/terminology-glossary.md](references/terminology-glossary.md) —— 术语表（自动累积）
 
