@@ -14,12 +14,10 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 |---|---|
 | **人味双注入** | humanlize 心法（位置/代价/手迹），主 agent 过程注入 + sub-agent 后置复检 |
 | **多 Agent 架构** | 主 agent + 人味 sub + 事实/溯源 sub（2 sub-agent 协同）|
-| **9 大质量门** | F1-F9 硬约束（反虚构/术语一致/文化标注/决策记录/语气保留/长度适应/多轮自检/人工复检/反向校验）|
+| **10 大质量门** | F1-F10 硬约束（反虚构/术语一致/文化标注/决策记录/语气保留/长度适应/多轮自检/人工复检/反向校验/**图片保留**）|
 | **场景驱动** | H1 爆款 / H2 行业 / H4 个人收藏自动识别 |
-| **Markdown-first** | 翻译→MD→PDF 分离（CSS 排版内置）|
-| **必出 PDF** | 排版精美的纯中文 PDF |
+| **Markdown-first** | 翻译→MD（v1.6 起不生成 PDF）|
 | **保留图片** | 原文 `<img>` / Markdown 图片直接复制，不下载/不丢/不加图说 |
-| **MD + PDF 一次出** | 主 agent 写完 MD 立刻跑 `md_to_pdf.py`，不等人确认 |
 | **术语表累积** | `references/terminology-glossary.md` 跨次翻译复用 |
 | **声音校准 4 维** | 句长/标点/人称/正式度对齐原文 |
 | **文化决策 5 步** | 搜索→识梗→选路→标注→复检全流程 |
@@ -39,17 +37,17 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 
 **输出**：
 - `D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.md`（纯中文）
-- `D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.pdf`（必出）
+- ~~`D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.pdf`~~（v1.6 起**不生成**）
 
 ## 5 大流程
 
 1. **Step 1 接收输入** —— 链接 / MD / 粘贴
 2. **Step 2 场景识别 + 翻译** —— 主 agent + humanlize 过程注入
 3. **Step 3 人味 sub-agent 复检** —— humanlize 心法后置审校
-4. **Step 4 事实核查 + 溯源 sub-agent 并行** —— F1-F9 质量门
-5. **Step 5 输出 MD + PDF** —— 必出
+4. **Step 4 事实核查 + 溯源 sub-agent 并行** —— F1-F10 质量门
+5. **Step 5 输出 MD** —— v1.6 起不生成 PDF
 
-## 9 大质量门
+## 10 大质量门
 
 | # | 名称 | 规则 |
 |---|---|---|
@@ -62,6 +60,7 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 | F7 | 多轮自检 | 翻译完自己读一遍，找"翻译腔"重写（AI 味 3 维分类）|
 | F8 | 人工复检高亮 | 输出时高亮"建议人工复检"段落 |
 | F9 | 反向校验 | 关键段落中→英 back-translation，防止翻译失真 |
+| F10 | 图片保留门 | 源文档所有图片 1:1 复制到译文（不下载/不丢/不加图说）|
 
 详细规则见 `references/quality-gates.md`。
 
@@ -80,11 +79,11 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 |---|---|
 | 翻译方向 | 英文 → 中文（v1 不做中→英）|
 | 输入 | 链接 / MD / 粘贴文本 |
-| 输出 | MD（纯中文）+ PDF |
-| 质量门 | F1-F9 全部硬约束 |
+| 输出 | MD（纯中文，v1.6 起**不生成 PDF**）|
+| 质量门 | F1-F10 全部硬约束 |
 | 场景 | H1/H2/H4 智能识别 |
 | 子 Agent | 2 个（人味 + 事实/溯源）|
 | humanlize 注入 | 双重（主 agent 过程 + sub-agent 后置）|
 | 触发词 | `/wenxuan-translate` / "翻译..." |
-| 必出 | MD + PDF |
+| 必出 | MD |
 | 不支持 | PDF 输入/HTML（v1）|
