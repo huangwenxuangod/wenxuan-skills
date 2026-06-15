@@ -27,7 +27,6 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 
 1. `/wenxuan-translate <链接或文件>` — 主动
 2. "翻译这个英文推文" / "把这段英文翻成中文" — 自然语言
-3. "H1 翻译" / "H2 翻译" / "H4 翻译" — 强制场景
 
 ## 输入/输出
 
@@ -81,9 +80,9 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 | 输入 | 链接 / MD / 粘贴文本 |
 | 输出 | MD（纯中文）+ PDF |
 | 质量门 | F1-F9 全部硬约束 |
-| 场景 | H1/H2/H4 智能识别 + 可手动覆盖 |
+| 场景 | H1/H2/H4 智能识别 |
 | 子 Agent | 2 个（人味 + 事实/溯源）|
 | humanlize 注入 | 双重（主 agent 过程 + sub-agent 后置）|
-| 触发词 | `/wenxuan-translate` / "翻译..." / "H1 翻译" |
+| 触发词 | `/wenxuan-translate` / "翻译..." |
 | 必出 | MD + PDF |
 | 不支持 | PDF/截图/HTML（v1）|
