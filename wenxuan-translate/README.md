@@ -18,6 +18,8 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 | **场景驱动** | H1 爆款 / H2 行业 / H4 个人收藏自动识别 |
 | **Markdown-first** | 翻译→MD→PDF 分离（CSS 排版内置）|
 | **必出 PDF** | 排版精美的纯中文 PDF |
+| **保留图片** | 原文 `<img>` / Markdown 图片直接复制，不下载/不丢/不加图说 |
+| **MD + PDF 一次出** | 主 agent 写完 MD 立刻跑 `md_to_pdf.py`，不等人确认 |
 | **术语表累积** | `references/terminology-glossary.md` 跨次翻译复用 |
 | **声音校准 4 维** | 句长/标点/人称/正式度对齐原文 |
 | **文化决策 5 步** | 搜索→识梗→选路→标注→复检全流程 |
@@ -85,4 +87,4 @@ wenxuan-translate 是 wenxuan-skills 仓库下的第 7 个 skill，专门处理*
 | humanlize 注入 | 双重（主 agent 过程 + sub-agent 后置）|
 | 触发词 | `/wenxuan-translate` / "翻译..." |
 | 必出 | MD + PDF |
-| 不支持 | PDF/截图/HTML（v1）|
+| 不支持 | PDF 输入/HTML（v1）|

@@ -1,7 +1,7 @@
 ---
 name: wenxuan-translate
 description: |
-  专业中英翻译引擎（英文 → 中文为主）；当用户使用 /wenxuan-translate、提供英文链接/英文 Markdown 文档/英文粘贴文本、要求翻译或高质量中文译文时，启动双轨质量门：主 agent 边译边注入 humanlize 心法（位置/代价/手迹），完成后人味 sub-agent 复检，事实核查+溯源 sub-agent 并行校验（F1-F9 九大质量门），最终产出纯中文 Markdown + 排版精美 PDF。核心场景：H1 爆款选题（意译+中文地道）/ H2 行业认知（直译+术语锁定）/ H4 个人收藏（直译+极简）。
+  专业中英翻译引擎（英文 → 中文为主）；当用户使用 /wenxuan-translate、提供英文链接/英文 Markdown 文档/英文粘贴文本、要求翻译或高质量中文译文时，启动双轨质量门：主 agent 边译边注入 humanlize 心法（位置/代价/手迹），完成后人味 sub-agent 复检，事实核查+溯源 sub-agent 并行校验（F1-F9 九大质量门），最终产出纯中文 Markdown + 排版精美 PDF（MD 出完后**一次性**调 PDF 脚本，不等人确认）。核心场景：H1 爆款选题（意译+中文地道）/ H2 行业认知（直译+术语锁定）/ H4 个人收藏（直译+极简）。
 ---
 
 # Wenxuan Translate — 专业中英翻译引擎
@@ -34,7 +34,36 @@ description: |
 | **Markdown 文档** | 英文 .md 文件路径 | 直接读 |
 | **粘贴文本** | 用户 copy 过来的段落 | 直接接 |
 
-**不支持**：PDF（不做，专注英→中纯文本）、截图（v1 不上）、HTML 文件（v1 不上）
+**不支持**：PDF 文件（v1 不接受 .pdf 输入，专注英→中纯文本）、HTML 文件（v1 不上）。
+**保留图片**：原文里的配图/截图，链接直接复制进译文（见下方"图片处理规则"）。
+
+### 图片处理规则
+
+**原则**：原文里的图片（X 推文/Newsletter 配图、`<img>` 标签、Markdown 图片语法）**直接复制链接**，不下载、不丢弃、不加图说。
+
+**主 agent 行为**：
+1. 解析原文时识别所有图片（`![](https://...)` 或 `<img src="https://...">`）
+2. 在译文对应位置**原样保留**图片链接（Markdown 图片语法优先，HTML img 标签次之）
+3. **不加中文图说**——保持与原文位置 1:1 对应，方便读者边读边看原图
+
+**示例**（原文）：
+
+> This is what the dashboard looks like:
+> ![](https://pbs.twimg.com/media/HKTPMRZbgAAnrfH?format=jpg&name=large)
+> Pretty clean, right?
+
+**译文**：
+
+> 这是这个 dashboard 的样子：
+> ![](https://pbs.twimg.com/media/HKTPMRZbgAAnrfH?format=jpg&name=large)
+> 看着挺清爽的，对吧？
+
+**为什么不做图说**：
+- 加中文图说需要 VLM 看图内容 → 增加翻译耗时
+- Twitter 配图通常是产品截图/数据图，**与正文强相关**，读者边读边看原图更自然
+- 链接保留模式下 PDF / HTML / MD 都能直接渲染，无需额外配置
+
+---
 
 ### Step 2：场景识别 + 翻译（主 agent）
 
@@ -102,7 +131,15 @@ description: |
 | **F8** | **人工复检高亮** | 输出时高亮"建议人工复检"段落 | 长难句、术语争议、语气把控不准 |
 | **F9** | **反向校验** | 取 5-10 个关键句反向回译成英文，比对回译与原文 | 回译比原文更"AI"→ 译文过度拔高 |
 
-### Step 6：输出（MD + PDF）
+### Step 6：输出（MD + PDF 一次出）
+
+**主 agent 在 MD 写完后立刻执行**：
+
+```bash
+python scripts/md_to_pdf.py "<MD 路径>" "<PDF 路径>"
+```
+
+**不等人确认**——避免你每跑一次翻译还要"再敲一下让 PDF 出"。
 
 **主输出**：
 - `D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.md` —— 纯中文 Markdown（文末附原文来源）
@@ -245,4 +282,4 @@ description: |
 | humanlize 注入 | 双重（主 agent 过程 + sub-agent 后置）|
 | 触发词 | `/wenxuan-translate` / "翻译..." |
 | 必出 | MD + PDF |
-| 不支持 | PDF/截图/HTML（v1）|
+| 不支持 | PDF 输入/HTML（v1）|
