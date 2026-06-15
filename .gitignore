@@ -35,6 +35,3 @@ logs/
 
 # anti-pua 运行时日志（不进仓库，本地累计在 ~/.workbuddy/skills/anti-pua/tracker.md）
 anti-pua/references/tracker.md
-
-# wenxuan-writer v1 备份（本次 v1→v2 同步临时保留，本地查阅用，不进 git）
-wenxuan-writer/SKILL.md.v1.bak
