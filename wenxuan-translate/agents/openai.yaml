@@ -2,6 +2,6 @@ name: wenxuan-translate
 display_name: 文轩专业翻译
 default_prompt: Use $wenxuan-translate to translate English content to Chinese with human flavor.
 description: |
-  专业中英翻译引擎（英文 → 中文）。借鉴 renwei-writing 人味心法 + senshinji 多 Agent 架构 + chrislee121 Markdown-first 流程。
+  专业中英翻译引擎（英文 → 中文）。humanlize 心法双注入 + 2 sub-agent 协同 + 9 大质量门。
   双轨质量门：主 agent 边译边注入人味心法 + 人味 sub-agent 后置复检 + 事实核查/溯源 sub-agent 并行校验。
-  支持：链接 / MD 文档 / 粘贴文本。输出：MD + PDF（中英对照）。8 大质量门（F1-F8）硬约束。
+  支持：链接 / MD 文档 / 粘贴文本。输出：MD + PDF（中英对照）。9 大质量门（F1-F9）硬约束。

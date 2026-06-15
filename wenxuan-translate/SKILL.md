@@ -1,7 +1,7 @@
 ---
 name: wenxuan-translate
 description: |
-  专业中英翻译引擎（英文 → 中文为主）；当用户使用 /wenxuan-translate、提供英文链接/英文 Markdown 文档/英文粘贴文本、要求翻译或高质量中文译文时，启动双轨质量门：主 agent 边译边注入 renwei 人味心法（位置/代价/手迹），完成后人味 sub-agent 复检，事实核查+溯源 sub-agent 并行校验（F1-F8 八大质量门），最终产出中英对照 Markdown + 排版精美 PDF。借鉴 senshinji/claude-translation-skill 多 Agent 架构 + chrislee121/pdf-translate-skill Markdown-first 流程 + orange2ai/renwei-writing 人味心法。核心场景：H1 爆款选题（意译+中文地道）/ H2 行业认知（直译+术语锁定）/ H4 个人收藏（直译+极简）。
+  专业中英翻译引擎（英文 → 中文为主）；当用户使用 /wenxuan-translate、提供英文链接/英文 Markdown 文档/英文粘贴文本、要求翻译或高质量中文译文时，启动双轨质量门：主 agent 边译边注入 humanlize 心法（位置/代价/手迹），完成后人味 sub-agent 复检，事实核查+溯源 sub-agent 并行校验（F1-F9 九大质量门），最终产出中英对照 Markdown + 排版精美 PDF。核心场景：H1 爆款选题（意译+中文地道）/ H2 行业认知（直译+术语锁定）/ H4 个人收藏（直译+极简）。
 ---
 
 # Wenxuan Translate — 专业中英翻译引擎
@@ -12,7 +12,7 @@ description: |
 
 英文写作者的字背后站着一个真实的人，他在特定语境下、特定时间点、特定情绪里写下了这段话。翻译不能只搬运词汇，必须**让中文读者也能感受到这个人**。这就是"人味"。
 
-参考 renwei-writing 心法：人写的字背后站着一个具体的人，他在具体的位置上，付出过具体的代价。
+参考 humanlize 心法：人写的字背后站着一个具体的人，他在具体的位置上，付出过具体的代价。
 
 ## 设计哲学
 
@@ -46,7 +46,7 @@ description: |
 | **H2 行业认知** | 技术博客 / 研报 / 论文摘要 | 直译为主，**术语锁定** | 严格保留专业术语、引用数据不改动 |
 | **H4 个人收藏** | 个人博客 / 长文 | 直译 + 极简 | 忠于原文结构、不优化 |
 
-**主 agent prompt 必带**（过程注入 renwei 心法）：
+**主 agent prompt 必带**（过程注入 humanlize 心法）：
 
 ```
 你是"有人味的"翻译主 agent。译文中必须体现：
@@ -57,7 +57,7 @@ description: |
 译文要让中文读者也能感受到"这是一个真人在说话"，而不是"AI 翻译的工整文章"。
 ```
 
-**翻译 4 大原则**（借鉴 chrislee121/pdf-translate-skill）：
+**翻译 4 大原则**：
 - **意合代替形合**：拆长句，按中文语义流重排
 - **主动代替被动**：避免"被"字滥用
 - **具体代替抽象**：名词化转动词化
@@ -65,7 +65,7 @@ description: |
 
 ### Step 3：人味 sub-agent 复检
 
-**人味 sub-agent** 加载完整的 renwei-writing `references/post-edit-checklist.md`（反 AI 味 checklist），对主 agent 译文做**第二轮人味审校**：
+**人味 sub-agent** 加载 references/humanlize-prompt-snippet.md 的反 AI 味 checklist，对主 agent 译文做**第二轮人味审校**：
 
 - 是否还残留"AI 翻译腔"（如工整对仗、过度书面化、空洞概括）
 - 原文的语气指纹（讽刺/克制/调侃）是否保留
@@ -86,20 +86,21 @@ description: |
 - 找不到原文来源的概念，标"待核实"
 - 输出：`【溯源结果】` 表格，每个专有名词标源头链接
 
-### Step 5：8 大质量门（硬约束）
+### Step 5：9 大质量门（硬约束）
 
-100% 通过 F1-F8 才算交付。打回重译的情况：
+100% 通过 F1-F9 才算交付。打回重译的情况：
 
 | # | 质量门 | 规则 | 失败示例 |
 |---|---|---|---|
 | **F1** | **反虚构核查** | 译文中不能出现"原文无"的内容（不能加戏）| 原文没提"市场规模 10 亿"，译文不能编造 |
 | **F2** | **术语一致性** | 同一术语全文统一翻译（如 "agents" 全文都翻"智能体"）| 同一段里 "agents" 一会"代理"一会"智能体" |
-| **F3** | **文化差异标注** | 英文俗语/双关/文化梗要标注"原文 XXX，对应中文 XXX" | "Bite the bullet" 直译为"咬子弹"未标注意译"硬着头皮" |
+| **F3** | **文化差异标注** | 英文俗语/双关/文化梗要标注"原文 XXX，对应中文 XXX"；遇文化梗主动搜索补齐上下文 | "Bite the bullet" 直译为"咬子弹"未标注意译"硬着头皮" |
 | **F4** | **翻译决策记录** | 关键术语/难点翻法要记录为什么 | （在元信息中）|
-| **F5** | **原文语气保留** | 英文讽刺/调侃/感叹，译文同等语气 | 原文是讽刺，译文变严肃陈述 |
+| **F5** | **原文语气保留** | 英文讽刺/调侃/感叹，译文同等语气；声音指纹 4 维对齐 | 原文是讽刺，译文变严肃陈述 |
 | **F6** | **长度自适应** | 中英文字数比按语义调整，不机械 1:1 | 一句英文硬翻成 3 句中文 |
-| **F7** | **多轮自检** | 翻译完自己读一遍，找"翻译腔"重写 | 出现"值得注意的是""综上所述" |
+| **F7** | **多轮自检** | 翻译完自己读一遍，按 AI 味 3 维分类重写 | 出现"值得注意的是""综上所述" |
 | **F8** | **人工复检高亮** | 输出时高亮"建议人工复检"段落 | 长难句、术语争议、语气把控不准 |
+| **F9** | **反向校验** | 取 5-10 个关键句反向回译成英文，比对回译与原文 | 回译比原文更"AI"→ 译文过度拔高 |
 
 ### Step 6：输出（MD + PDF）
 
@@ -149,7 +150,20 @@ description: |
 - ...
 ```
 
-**PDF 结构**：中英对照，封面/页眉/页脚自动生成，CSS 排版参考 wenxuan-learn。
+**PDF 结构**：中英对照，封面/页眉/页脚自动生成，CSS 排版内置，配套 scripts/md_to_pdf.py。
+
+### 格式本地化规范（v1.1 新增）
+
+**翻译过程中必须本地化以下格式**，主 agent 翻译时自动应用，事实核查 sub-agent 复检时核对：
+
+| 维度 | 规则 | 示例 |
+|---|---|---|
+| **数字** | 阿拉伯数字与中文混排时统一用阿拉伯数字 | "10 个"（不写"十个"）|
+| **日期** | 英文 MM/DD/YYYY 全部转 YYYY 年 MM 月 DD 日 | 06/15/2026 → 2026 年 06 月 15 日 |
+| **单位** | 英制转公制（除非技术/法律场景保留）| 1 inch → 2.54 cm |
+| **货币** | 美元/欧元/英镑 + 数字；**不主动换算汇率**（除非原文明确）| $10M → 1000 万美元（不是 7.2 亿人民币）|
+| **标点** | 中文正文用全角（，。：；！？）；英文术语内用半角 | "AI 工具"（不写"AI工具"中间用半角逗号）|
+| **空格** | 英文术语与中文之间留 1 个全角空格或 0 空格（按上下文统一）| "使用 AI 工具" 或 "使用AI工具"（全文统一）|
 
 ## 输入/输出格式
 
@@ -186,15 +200,15 @@ description: |
 
 ## 子 Agent 设计
 
-主流程跑 2 个 sub-agent（借鉴 senshinji/claude-translation-skill 多 Agent 架构）：
+主流程跑 2 个 sub-agent 协同：
 
 | Sub-agent | 职责 | 触发时机 |
 |---|---|---|
-| **人味 sub-agent** | renwei 心法复检，反 AI 味 | Step 3 |
+| **人味 sub-agent** | humanlize 心法复检，反 AI 味 | Step 3 |
 | **事实核查 + 溯源 sub-agent** | F1-F2 + F3 术语/文化差异 + 生僻概念溯源 | Step 4 |
 
 **主 agent 提示词必带**：
-- renwei-prompt-snippet.md 片段（过程注入，详见 references/）
+- humanlize-prompt-snippet.md 片段（过程注入，详见 references/）
 - 翻译 4 大原则（意合/主动/具体/简练）
 - 场景识别规则（H1/H2/H4）
 
@@ -203,7 +217,7 @@ description: |
 ### 人味 sub-agent
 
 ```
-你是"wenxuan-translate"的人味审校 sub-agent。加载 references/renwei-prompt-snippet.md
+你是"wenxuan-translate"的人味审校 sub-agent。加载 references/humanlize-prompt-snippet.md
 的完整内容，对主 agent 的译文做第二轮人味审校。
 
 输入：<原文> + <主 agent 译文>
@@ -233,19 +247,6 @@ description: |
 - F3 文化差异：标出需要中文注释的俗语/双关
 ```
 
-## 借鉴资产 & 致谢
-
-| 借鉴 | 来源 | 用法 |
-|---|---|---|
-| 多 Agent 架构 | [senshinji/claude-translation-skill](https://github.com/senshinji/claude-translation-skill) | 主 agent + 人味 sub + 事实/溯源 sub |
-| Markdown-first 流程 | [chrislee121/pdf-translate-skill](https://github.com/chrislee121/pdf-translate-skill) | 翻译→MD→PDF 分离 |
-| 4 大翻译原则 | chrislee121/pdf-translate-skill | 意合/主动/具体/简练 |
-| CJK 字体 fallback | chrislee121/pdf-translate-skill | scripts/md_to_pdf.py |
-| **人味心法** | [orange2ai/renwei-writing](https://github.com/orange2ai/renwei-writing) | 过程注入（主 agent prompt）+ 后置复检（人味 sub）|
-| 事实核查强约束 | wenxuan-learn | 借鉴进 F1 质量门 |
-| 5 类研究对象 | wenxuan-learn | 概念溯源时借用 |
-| renwei 心法（位置/代价/手迹）| wenxuan-writer（已融合）| 翻译场景的应用 |
-
 ## 速览表
 
 | 维度 | 规则 |
@@ -256,7 +257,7 @@ description: |
 | 质量门 | F1-F8 全部硬约束 |
 | 场景 | H1/H2/H4 智能识别 + 可手动覆盖 |
 | 子 Agent | 2 个（人味 + 事实/溯源）|
-| renwei 注入 | 双重（主 agent 过程 + sub-agent 后置）|
+| humanlize 注入 | 双重（主 agent 过程 + sub-agent 后置）|
 | 触发词 | `/wenxuan-translate` / "翻译..." / "H1 翻译" |
 | 必出 | MD + PDF |
 | 不支持 | PDF/截图/HTML（v1）|

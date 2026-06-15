@@ -1,7 +1,7 @@
-# 术语研究方法（借鉴自 senshinji/claude-translation-skill）
+# 术语研究方法
 
 > wenxuan-translate 事实核查 + 溯源 sub-agent 用的术语研究方法。
-> 借鉴 senshinji 多 Agent 协同思路，去掉 Opus 依赖。
+> 主 agent + 2 个并行 sub-agent 协同思路（语境研究 sub + 标准译法 sub）。
 
 ---
 
