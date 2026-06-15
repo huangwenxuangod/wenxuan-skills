@@ -105,8 +105,8 @@ description: |
 ### Step 6：输出（MD + PDF）
 
 **主输出**：
-- `D:\path-to-wealth-freedom\内容\翻译\译文-<原标题或日期>.md` —— 中英对照 Markdown
-- `译文-<原标题或日期>.pdf` —— 必出，排版精美（走 scripts/md_to_pdf.py）
+- `D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.md` —— 中英对照 Markdown
+- `D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.pdf` —— 必出，排版精美（走 scripts/md_to_pdf.py）
 
 **Markdown 结构**：
 
@@ -179,8 +179,8 @@ description: |
 
 | 输出 | 路径 |
 |---|---|
-| 主文件 | `D:\path-to-wealth-freedom\内容\翻译\译文-<原标题或日期>.md` |
-| 配套 PDF | `D:\path-to-wealth-freedom\内容\翻译\译文-<原标题或日期>.pdf` |
+| 主文件 | `D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.md` |
+| 配套 PDF | `D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.pdf` |
 | 沉淀资产 | `references/terminology-glossary.md`（术语表累积） |
 
 ## 触发方式
