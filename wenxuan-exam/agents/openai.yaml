@@ -1,6 +1,4 @@
 interface:
-  display_name: "分析与讲解考场"
-  short_description: "给概念不给结论：出考题单、搬证据材料、批改讲解，练你的分析与讲解能力"
-  default_prompt: "Use $wenxuan-exam to train me on this concept without giving me conclusions."
-
-
+  display_name: "认知地图"
+  short_description: "给一个概念，出一页认知地图，然后告诉你现在该查什么、想什么、答什么"
+  default_prompt: "Use $wenxuan-exam to map this concept for me, then tell me exactly what to do next."
