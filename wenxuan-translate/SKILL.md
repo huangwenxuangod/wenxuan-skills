@@ -138,7 +138,7 @@ description: |
 
 - `D:\path-to-wealth-freedom\内容\文章\翻译\译文-<原标题或日期>.md` —— 纯中文 Markdown（文末附原文来源）
 
-**v1.6 变更**：不再生成 PDF。`scripts/md_to_pdf.py` 已删除。后续如需 PDF，自己用 Typst/Pandoc/macdown 等本地工具转换，或用浏览器打印。
+**v1.6 变更**：不再生成 PDF。原 PDF 转换脚本已删除。后续如需 PDF，自己用 Typst/Pandoc/macdown 等本地工具转换，或用浏览器打印。
 
 **Markdown 结构**：
 
