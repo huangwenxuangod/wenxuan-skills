@@ -1,0 +1,6 @@
+interface:
+  display_name: "分析与讲解考场"
+  short_description: "给概念不给结论：出考题单、搬证据材料、批改讲解，练你的分析与讲解能力"
+  default_prompt: "Use $wenxuan-exam to train me on this concept without giving me conclusions."
+
+
